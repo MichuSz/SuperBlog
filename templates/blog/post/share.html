@@ -1,0 +1,19 @@
+{% extends "blog/base.html" %}
+
+{% block title %}Udostepnij post {% endblock %}
+
+{% block content %}
+{% if sent %}
+    <h1> Wiadomosc email zostala wyslana</h1>
+    <p>
+        Wyslanie posta " {{ post.title }} " przez e-mail.
+    </p>
+{% else %}
+    <h1> Udostepnij " {{ post.title }} " przez e-mail.</h1>
+    <form action="." method="post">
+        {{ form.as_p }}
+        {% csrf_token %}
+        <input type="submit" value="Wyslij wiadmosc e-mail">
+    </form>
+{% endif %}
+{% endblock %}
