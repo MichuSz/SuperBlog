@@ -11,3 +11,4 @@ class PostSitemap(Sitemap):
 
     def lastmod(self,obj):
         return obj.publish
+
